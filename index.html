@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#060d1a" />
+  <title>کتاب‌پویندگان | KetabPoyandegan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient a1"></div>
+  <div class="ambient a2"></div>
+  <div class="ambient a3"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#" data-nav="home">
+      <span class="brand-mark">◈</span>
+      <span class="brand-text">Ketab<span class="gold">Poyandegan</span></span>
+    </a>
+    <nav class="side-nav">
+      <button class="side-link active" data-nav="home">
+        <span class="ico">⌂</span><span data-i18n="nav.home">خانه</span>
+      </button>
+      <button class="side-link" data-nav="books">
+        <span class="ico">▤</span><span data-i18n="nav.books">کتابخانه</span>
+      </button>
+      <button class="side-link" data-nav="movies">
+        <span class="ico">▶</span><span data-i18n="nav.movies">فیلم و سریال</span>
+      </button>
+      <button class="side-link" data-nav="favorites">
+        <span class="ico">♥</span><span data-i18n="nav.favorites">علاقه‌مندی‌ها</span>
+      </button>
+      <button class="side-link" data-nav="profile">
+        <span class="ico">☺</span><span data-i18n="nav.profile">پروفایل</span>
+      </button>
+      <button class="side-link" data-nav="about">
+        <span class="ico">ℹ</span><span data-i18n="nav.about">درباره ما</span>
+      </button>
+    </nav>
+    <div class="side-quote">
+      <p data-i18n="side.quote">«کتاب‌ها، بهترین دوستان انسان هستند.»</p>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="shell">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <div class="top-nav">
+        <button class="top-link active" data-nav="home" data-i18n="nav.home">خانه</button>
+        <button class="top-link" data-nav="books" data-i18n="nav.books">کتابخانه</button>
+        <button class="top-link" data-nav="movies" data-i18n="nav.movies">فیلم و سریال</button>
+        <button class="top-link" data-nav="about" data-i18n="nav.about">درباره ما</button>
+      </div>
+      <div class="top-actions">
+        <div class="search-wrap">
+          <input type="search" id="globalSearch" placeholder="جستجو در کتاب‌ها، فیلم‌ها و سریال‌ها..." data-i18n-placeholder="search.placeholder" />
+          <span class="search-ico">⌕</span>
+        </div>
+        <button class="icon-btn" id="favBtn" title="Favorites">♥</button>
+        <button class="lang-toggle" id="langToggle" title="Language">
+          <span id="langLabel">EN</span>
+        </button>
+        <button class="profile-chip" id="profileChip">
+          <span class="avatar" id="avatarLetter">?</span>
+          <span id="chipName" data-i18n="profile.guest">مهمان</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section class="page active" id="page-home">
+        <div class="hero">
+          <div class="hero-bg"></div>
+          <div class="hero-content">
+            <div class="eyebrow"><span class="pulse"></span><span data-i18n="hero.eyebrow">کتابخانه‌ی دیجیتال پویندگان</span></div>
+            <h1 data-i18n="hero.title">به دنیای بی‌پایان داستان‌ها خوش آمدی!</h1>
+            <p data-i18n="hero.sub">اینجا جاییه که کتاب‌ها، فیلم‌ها و سریال‌ها با هم زندگی می‌کنن...</p>
+            <div class="hero-btns">
+              <button class="btn primary" data-nav="books" data-i18n="hero.cta1">شروع کن</button>
+              <button class="btn ghost" data-nav="movies" data-i18n="hero.cta2">بیشتر بدانید</button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-card">
+              <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80" alt="Library" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('no-img')" />
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-head">
+            <h2 data-i18n="home.popularBooks">کتاب‌های محبوب</h2>
+            <button class="text-link" data-nav="books" data-i18n="common.viewAll">مشاهده همه</button>
+          </div>
+          <div class="card-row" id="homeBooks"></div>
+        </div>
+
+        <div class="section">
+          <div class="section-head">
+            <h2 data-i18n="home.popularMovies">فیلم و سریال</h2>
+            <button class="text-link" data-nav="movies" data-i18n="common.viewAll">مشاهده همه</button>
+          </div>
+          <div class="card-row poster-row" id="homeMovies"></div>
+        </div>
+
+        <div class="quote-banner">
+          <span class="qmark">“</span>
+          <p data-i18n="home.quote">کسی که کتاب می‌خواند، پیش از آن‌که زندگی کند، هزار زندگی را تجربه می‌کند.</p>
+          <small>— George R. R. Martin</small>
+        </div>
+      </section>
+
+      <!-- BOOKS -->
+      <section class="page" id="page-books">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">THE LIBRARY</span>
+            <h1 data-i18n="books.title">کتابخانه <span class="gold">پویندگان</span></h1>
+            <p data-i18n="books.sub">ماجراجویی بعدی‌ات فقط چند صفحه فاصله دارد.</p>
+          </div>
+        </div>
+        <div class="toolbar">
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="bookSearch" type="search" data-i18n-placeholder="books.search" placeholder="اسم کتاب، نویسنده یا موضوع..." />
+          </label>
+          <select id="bookGenre"></select>
+          <select id="bookSort">
+            <option value="popular" data-i18n="sort.popular">محبوب‌ترین</option>
+            <option value="rating" data-i18n="sort.rating">بالاترین امتیاز</option>
+            <option value="az" data-i18n="sort.az">نام: الف تا ی</option>
+          </select>
+        </div>
+        <div class="chips" id="bookChips"></div>
+        <div class="grid" id="booksGrid"></div>
+        <p class="empty hidden" id="booksEmpty" data-i18n="common.empty">چیزی پیدا نشد.</p>
+      </section>
+
+      <!-- MOVIES -->
+      <section class="page" id="page-movies">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">CINEMA UNIVERSE</span>
+            <h1 data-i18n="movies.title">فیلم و <span class="gold">سریال</span></h1>
+            <p data-i18n="movies.sub">از معماهای نفس‌گیر تا دنیاهای خیال‌انگیز.</p>
+          </div>
+        </div>
+        <div class="toolbar">
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="movieSearch" type="search" data-i18n-placeholder="movies.search" placeholder="اسم فیلم، کارگردان یا موضوع..." />
+          </label>
+          <select id="movieGenre"></select>
+          <select id="movieType">
+            <option value="all" data-i18n="movies.allTypes">فیلم و سریال</option>
+            <option value="movie" data-i18n="movies.movies">فیلم</option>
+            <option value="series" data-i18n="movies.series">سریال</option>
+            <option value="animation" data-i18n="movies.animation">انیمیشن</option>
+          </select>
+          <select id="movieSort">
+            <option value="popular" data-i18n="sort.popular">محبوب‌ترین</option>
+            <option value="rating" data-i18n="sort.rating">بالاترین امتیاز</option>
+            <option value="new" data-i18n="sort.new">جدیدترها</option>
+          </select>
+        </div>
+        <div class="chips" id="movieChips"></div>
+        <div class="grid poster-grid" id="moviesGrid"></div>
+        <p class="empty hidden" id="moviesEmpty" data-i18n="common.empty">چیزی پیدا نشد.</p>
+        <p class="disclaimer" data-i18n="movies.disclaimer">لینک تماشا شما را به آپارات یا جست‌وجوی معتبر هدایت می‌کند. دسترسی به پخش بستگی به منطقه دارد.</p>
+      </section>
+
+      <!-- FAVORITES -->
+      <section class="page" id="page-favorites">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">YOUR LIST</span>
+            <h1 data-i18n="fav.title">علاقه‌مندی‌های <span class="gold">من</span></h1>
+            <p data-i18n="fav.sub">کتاب‌ها و فیلم‌هایی که دوست داری اینجا جمع می‌شن.</p>
+          </div>
+        </div>
+        <div class="grid" id="favGrid"></div>
+        <p class="empty" id="favEmpty" data-i18n="fav.empty">هنوز چیزی اضافه نکردی. از کارت‌ها دکمه ♥ رو بزن!</p>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="page" id="page-profile">
+        <div class="profile-layout">
+          <div class="profile-card glass">
+            <div class="profile-header">
+              <div class="big-avatar" id="bigAvatar">?</div>
+              <div>
+                <h2 id="profileDisplayName" data-i18n="profile.guest">مهمان</h2>
+                <p id="profileMeta" class="muted">—</p>
+              </div>
+            </div>
+            <div class="stats-row">
+              <div class="stat"><b id="statBooks">0</b><span data-i18n="profile.statBooks">کتاب خوانده</span></div>
+              <div class="stat"><b id="statMovies">0</b><span data-i18n="profile.statMovies">فیلم / سریال</span></div>
+              <div class="stat"><b id="statFavs">0</b><span data-i18n="profile.statFavs">علاقه‌مندی</span></div>
+            </div>
+            <form id="profileForm" class="profile-form">
+              <label><span data-i18n="profile.firstName">نام</span><input id="firstName" required maxlength="40" /></label>
+              <label><span data-i18n="profile.lastName">نام خانوادگی</span><input id="lastName" required maxlength="50" /></label>
+              <label><span data-i18n="profile.grade">پایه تحصیلی</span>
+                <select id="grade">
+                  <option>هفتم</option><option>هشتم</option><option selected>نهم</option>
+                  <option>دهم</option><option>یازدهم</option><option>دوازدهم</option><option>سایر</option>
+                </select>
+              </label>
+              <label><span data-i18n="profile.lang">زبان سایت</span>
+                <select id="language">
+                  <option value="fa">فارسی</option>
+                  <option value="en">English</option>
+                </select>
+              </label>
+              <button type="submit" class="btn primary full" data-i18n="profile.save">ذخیره تغییرات</button>
+            </form>
+            <p class="privacy" data-i18n="profile.privacy">اطلاعات فقط در همین مرورگر ذخیره می‌شود.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="page" id="page-about">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">OUR STORY</span>
+            <h1 data-i18n="about.title">درباره‌ی <span class="gold">پویندگان</span></h1>
+            <p data-i18n="about.sub">جایی برای کنجکاوی، خیال و پیدا کردن داستان بعدی.</p>
+          </div>
+        </div>
+        <div class="about-panel glass">
+          <div class="about-icon">◈</div>
+          <h2 data-i18n="about.h2">کتاب‌پویندگان چیست؟</h2>
+          <p data-i18n="about.p">یک تجربه‌ی دیجیتال دانش‌آموزی برای معرفی کتاب‌ها، فیلم‌ها و سریال‌های ارزشمند. این وب‌سایت به‌عنوان پروژه‌ی کار و فناوری پایه نهم طراحی شده و می‌تواند با پیشنهادهای دانش‌آموزان مدرسه کامل‌تر شود.</p>
+          <div class="about-points">
+            <div><span>📚</span><div><b data-i18n="about.p1t">کتاب‌های منتخب</b><span data-i18n="about.p1d">خلاصه و اطلاعات کاربردی</span></div></div>
+            <div><span>🎬</span><div><b data-i18n="about.p2t">راهنمای تماشا</b><span data-i18n="about.p2d">ژانر، داستان و لینک معتبر</span></div></div>
+            <div><span>💛</span><div><b data-i18n="about.p3t">انتخاب‌های شخصی</b><span data-i18n="about.p3d">علاقه‌مندی‌ها و پروفایل</span></div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand footer-brand" href="#" data-nav="home">
+        <span class="brand-mark">◈</span>
+        <span>Ketab<span class="gold">Poyandegan</span></span>
+      </a>
+      <div class="footer-links">
+        <button data-nav="about" data-i18n="nav.about">درباره ما</button>
+        <span data-i18n="footer.made">ساخته‌شده با کنجکاوی ✨</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- DETAIL MODAL -->
+  <div class="modal hidden" id="detailModal">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel detail-panel glass" id="detailContent"></div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
